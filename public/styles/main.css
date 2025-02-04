@@ -1,0 +1,18 @@
+/* Import des différents fichiers CSS */
+@import "./variables.css";
+@import "./reset.css";
+@import "./header.css";
+@import "./hero.css";
+@import "./trees.css";
+@import "./footer.css";
+@import "./section.css";
+@import "./about.css";
+@import "./auth.css";
+@import "./signup.css";
+@import "./cart.css";
+@import "./payment.css";
+@import "./confirmation.css";
+@import "./order.css";
+@import "./orderhistory.css";
+@import "./profil.css";
+@import "./animation.css";

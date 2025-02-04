@@ -1,0 +1,60 @@
+/* Order Summary */
+
+.order-summary {
+  background-color: var(--color-gray-light);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  width: 85%;
+  margin: auto;
+}
+
+.summary-container {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.order-details {
+  background-color: var(--color-gray-light);
+  border: 1px solid var(--color-green-primary);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+dl {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+dt {
+  color: var(--color-gray-dark);
+}
+
+dd {
+  font-weight: 500;
+  text-align: right;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-track {
+  background-color: var(--color-green-primary);
+  color: var(--color-white);
+}
+.btn-track:hover {
+  background-color: var(--color-green-hover);
+}
+
+.btn-home {
+  background-color: var(--color-gray-light);
+  border: 1px solid var(--color-gray-dark);
+  color: var(--color-dark);
+}
+.btn-home:hover {
+  background-color: var(--color-green-primary);
+  color: var(--color-white);
+}

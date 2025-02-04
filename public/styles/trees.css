@@ -1,0 +1,96 @@
+/* Trees Section */
+@import "./variables.css";
+
+.trees {
+  background-color: var(--color-white);
+  padding: 3rem 1rem;
+}
+
+.trees h2 {
+  text-align: center;
+  color: var(--color-dark);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.tree-cards {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.tree-card {
+  background-color: var(--color-gray-light);
+  border: solid 1px var(--color-gray);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.tree-card:hover {
+  transform: scale(1.05);
+}
+
+.tree-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+}
+
+.card-content h3 {
+  color: var(--color-dark);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.tree-info {
+  display: flex;
+  gap: 1rem;
+  color: #666;
+  font-size: 0.875rem;
+  margin: 1rem 0;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-green-primary);
+}
+
+.btn-plant {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-green-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-plant:hover {
+  background-color: var(--color-green-hover);
+}
+.btn-disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}

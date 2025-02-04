@@ -1,0 +1,152 @@
+<%- include('partials/header') %>
+    <main class="main-container">
+
+        <!-- Progress Steps -->
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-step">
+                <div class="step-number">1</div>
+                <span class="step-label">Panier</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">
+                <div class="step-number">2</div>
+                <span class="step-label">Paiement</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-number">3</div>
+                <span class="step-label">Résumé</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="main-content">
+                <!-- Billing Address -->
+                <section class="card ">
+                    <h2>Adresse de facturation</h2>
+                    <div class="form-group">
+                        <label for="country">Pays</label>
+                        <select id="country">
+                            <option>France</option>
+                            <option>Martinique</option>
+                            <option>Guadeloupe</option>
+                            <option>Belgique</option>
+                        </select>
+                    </div>
+                    <p class="info-text">Comme exigé par la loi, les taxes seront calculées en fonction de votre
+                        pays de résidence.</p>
+                </section>
+
+
+                <!-- Payment Method -->
+                <section class="card">
+                    <h2>Mode de paiement</h2>
+                    <div class="payment-options">
+                        <label class="payment-option active">
+                            <input type="radio" name="payment" value="paypal" checked>
+                            <span class="option-content">
+                                <span class="option-label">PayPal</span>
+                                <span class="option-info">Pour terminer votre transaction, vous serez redirigé vers
+                                    les serveurs sécurisés de PayPal.</span>
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card">
+                            <span class="option-content">
+                                <span class="option-label">Carte bancaire</span>
+                                <div class="card-form hidden">
+                                    <div class="form-group">
+                                        <label>Nom sur la carte</label>
+                                        <input type="text" placeholder="JOHN DOE">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Numéro de carte</label>
+                                        <input type="text" placeholder="4242 4242 4242 4242">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Date d'expiration</label>
+                                            <input type="text" placeholder="MM/AA">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>CVC</label>
+                                            <input type="text" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                        </label>
+                    </div>
+                </section>
+
+
+                <!-- Order Details -->
+                <section class="card">
+                    <h2>Détails de la commande</h2>
+                    <% cart.forEach((item)=> { %>
+                        <div class="order-item">
+                            <img src="<%= item.photo %>" alt="Sapin blanc" class="item-image">
+                            <div class="order-info">
+                                <div class="order-header">
+                                    <h3>
+                                        <%= item.name %>
+                                    </h3>
+                                    <span class="price">
+                                        <%= item.price %> €
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <% }) %>
+                </section>
+            </div>
+
+            <!-- Order Summary -->
+            <aside class="sidebar">
+                <div class="card sticky">
+                    <h2>Informations utilisateur</h2>
+                    <dl class="user-info">
+                        <div class="info-row">
+                            <dt>Nom :</dt>
+                            <dd>
+                                <%= user.firstname %>
+                            </dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Prénom :</dt>
+                            <dd>
+                                <%= user.lastname %>
+                            </dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Email :</dt>
+                            <dd>
+                                <%= user.email %>
+                            </dd>
+                        </div>
+                    </dl>
+
+                    <h2>Résumé</h2>
+                    <dl class="price-summary">
+                        <div class="info-row total">
+                            <dt>Total :</dt>
+                            <dd>
+                                <%= totalPrice.toFixed(2) %> €
+                            </dd>
+                        </div>
+                    </dl>
+                    <form action="/payment/confirmation" method="POST" class="summary-form">
+                        <% cart.forEach((item)=> { %>
+                            <input type="hidden" name="products[]" value="<%= item.id %>">
+                            <% }); %>
+                                <button class="pay-button">Payer</button>
+                    </form>
+
+                </div>
+            </aside>
+        </div>
+
+    </main>
+    <%- include('partials/footer') %>

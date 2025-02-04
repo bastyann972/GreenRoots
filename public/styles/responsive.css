@@ -1,0 +1,50 @@
+/* Responsive Design */
+@import "./variables.css";
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-buttons .btn-connection,
+  .nav-buttons .btn-inscription {
+    display: none;
+  }
+
+  .btn-burger {
+    display: block; /* Afficher le bouton burger */
+  }
+
+  .burger-menu {
+    display: none; /* Le menu reste caché tant qu'il n'est pas activé */
+    position: absolute;
+    top: 80px; /* Ajustez la position en dessous de la nav */
+    right: 0;
+    background-color: var(--color-green-primary);
+    color: var(--color-white);
+    padding: 1rem;
+    width: 200px;
+    z-index: 10;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .burger-menu.hidden {
+    display: none; /* Cacher avec la classe hidden */
+  }
+
+  .burger-menu a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+
+  .burger-menu a:hover {
+    color: #4ade80;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+    <main class="main-container">
+        <div class="progress-bar">
+            <div class="progress-step">
+                <div class="step-number">1</div>
+                <span class="step-label">Panier</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step">
+                <div class="step-number">2</div>
+                <span class="step-label">Paiement</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step active">
+                <div class="step-number">3</div>
+                <span class="step-label">Résumé</span>
+            </div>
+        </div>
+
+        <section class="order-summary">
+            <div class="summary-container">
+                <h2>Merci pour votre commande ! <%= user.firstname %>
+                        <%= user.lastname %>
+                </h2>
+                <p class="order-message">
+                    Votre commande <a href="#" class="order-link">#<%= order.id %></a> sera traitée dans les 24 heures
+                    ouvrables.
+                    Vous recevrez un email une fois votre commande expédiée.
+                </p>
+
+                <div class="order-details">
+                    <dl>
+                        <dt>Date :</dt>
+                        <dd>
+                            <%= order.date_order.toLocaleDateString("fr-FR") %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Mode de paiement :</dt>
+                        <dd>Paypal</dd>
+                    </dl>
+
+                    <dl>
+                        <dt>Articles achetés :</dt>
+                        <dd>
+                            <ul>
+                                <% cart.forEach(item=> { %>
+                                    <li>
+                                        <%= item.name %> - <%= item.price.toFixed(2) %> €
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Total payé :</dt>
+                        <dd>
+                            <%= totalPrice.toFixed(2) %> €
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="/order" class="btn btn-track">Suivre ma commande</a>
+                    <a href="/" class="btn btn-home">Retour à l'accueil</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('partials/footer') %>

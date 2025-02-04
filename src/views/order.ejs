@@ -1,0 +1,82 @@
+<%- include('partials/header') %>
+    <main class="main-order">
+
+        <div class="orders__header">
+            <h1 class="orders__title">Mes commandes</h1>
+            <div class="orders__filters">
+                <select class="orders__select">
+                    <option>Toutes les commandes</option>
+                    <option>En cours</option>
+                    <option>Terminées</option>
+                </select>
+                <span>de</span>
+                <select class="orders__select">
+                    <option>cette semaine</option>
+                    <option>ce mois</option>
+                    <option>cette année</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="orders__list">
+            <% if (orders && orders.length> 0) { %>
+                <% orders.forEach((singleOrder)=> { %>
+                    <div class="order-card">
+                        <div class="order-card__grid">
+                            <div>
+                                <p class="order-card__label">Numéro de commande :</p>
+                                <p class="order-card__value">
+                                    <%= singleOrder.id %>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="order-card__label">Date :</p>
+                                <p class="order-card__value">
+                                    <%= new Date(singleOrder.date_order).toLocaleString("fr-FR") %>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="order-card__label">Statut :</p>
+                                <span class="order-card__status">
+                                    <%= singleOrder.status ? "Confirmée" : "Annulée" %>
+                                </span>
+                            </div>
+                            <% if (singleOrder.Trees && singleOrder.Trees.length> 0) { %>
+                                <% singleOrder.Trees.forEach((tree)=> { %>
+                                    <div>
+                                        <p class="order-card__label">Article :</p>
+                                        <p class="order-card__value">
+                                            <%= tree.name %>
+                                        </p>
+                                        <p class="order-card__label">Prix :</p>
+                                        <p class="order-card__value">
+                                            <%= tree.price ? parseFloat(tree.price).toFixed(2) : "Prix non disponible"
+                                                %> €
+                                        </p>
+                                    </div>
+                                    <% }); %>
+                                        <% } else { %>
+                                            <p class="order-card__value">Aucun produit associé à cette commande.</p>
+                                            <% } %>
+                        </div>
+
+                        <div class="order-card__actions">
+                            <form action="/order/cancel/<%= singleOrder.id %>" method="POST">
+                                <button type="submit" class="order-card__button order-card__button--cancel">
+                                    Annuler la commande
+                                </button>
+                            </form>
+                            <a href="/order/<%= singleOrder.id %>"
+                                class="order-card__button order-card__button--details">
+                                Voir les détails
+                            </a>
+                        </div>
+                    </div>
+                    <% }); %>
+                        <% } else { %>
+                            <p>Aucune commande trouvée.</p>
+                            <% } %>
+        </div>
+
+    </main>
+    <%- include('partials/footer') %>

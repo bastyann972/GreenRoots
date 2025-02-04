@@ -1,0 +1,63 @@
+<%- include('partials/header') %>
+    <main class="main-tree">
+        <section class="hero">
+            <div class="hero-content">
+                <img src="/img/LogoChenebg.png" alt="Logo Chêne" class="hero-logo">
+                <h1 class="titre">Plantez pour l'avenir</h1>
+                <p class="paragraphe">Rejoignez notre mission de reforestation et contribuez à un avenir plus vert.
+                    Chaque arbre compte dans la lutte contre le changement climatique.</p>
+                <a href="/tree">
+                    <button class="btn-discover">Découvrir nos arbres</button>
+                </a>
+            </div>
+        </section>
+
+        <section class="trees">
+            <h2>Nos arbres du moment</h2>
+            <div class="tree-cards">
+                <% trees.forEach(tree=> {%>
+
+
+                    <article class="tree-card">
+                        <img src="<%= tree.photo %>" alt="Érable du Japon">
+                        <div class="card-content">
+                            <h3>
+                                <%= tree.name %>
+                            </h3>
+                            <p>
+                                <%= tree.description %>
+                            </p>
+                            <div class="tree-info">
+                                <span><i class="fa-solid fa-wind"></i>
+                                    <%= tree.co2Absorption%>
+                                </span>
+                                <span><i class="fa-solid fa-location-dot"></i>
+                                    <%= tree.region%>
+                                </span>
+                            </div>
+                            <div class="card-actions">
+                                <span class="price">
+                                    <%= tree.price %>€
+                                </span>
+                                <% const isInCart=cart && cart.some((item)=> item.id === tree.id); %>
+                                    <% if (isInCart) { %>
+                                        <!-- Désactive le bouton si l'article est dans le panier -->
+                                        <button class="btn-disabled" disabled>
+                                            Déjà dans le panier
+                                        </button>
+                                        <% } else { %>
+                                            <form action="/add-to-cart" method="POST">
+                                                <input type="hidden" name="productId" value="<%= tree.id %>">
+                                                <button class="btn-plant">Planter</button>
+                                            </form>
+                                            <% } %>
+                            </div>
+                        </div>
+                    </article>
+                    <% }); %>
+
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>

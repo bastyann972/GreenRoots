@@ -1,0 +1,110 @@
+/* Hero Section */
+@import "./variables.css";
+
+.hero {
+  position: relative;
+  color: var(--color-white);
+  text-align: center;
+  padding: 100px 16px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80");
+  background-size: cover;
+  background-position: center;
+}
+.hero2 {
+  position: relative;
+  color: var(--color-white);
+  text-align: center;
+  padding: 100px 16px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&q=80");
+  background-size: cover;
+  background-position: center;
+}
+.hero3 {
+  position: relative;
+  color: var(--color-white);
+  text-align: center;
+  padding: 100px 16rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://cdn.pixabay.com/photo/2021/12/16/15/26/forest-6874717_640.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-logo {
+  width: 150px;
+  margin-bottom: 2.5rem;
+  margin: auto;
+}
+
+.titre {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.paragraphe {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.btn-discover {
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  background-color: var(--color-green-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-discover:hover {
+  background-color: var(--color-green-hover);
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 16px; /* Réduit les marges pour petits écrans */
+    background-position: center;
+  }
+
+  .hero2 {
+    padding: 60px 16px;
+    background-position: center;
+  }
+
+  .hero3 {
+    padding: 60px 8px;
+    background-position: center;
+  }
+
+  .hero-content {
+    max-width: 90%; /* Réduit la largeur pour s'adapter à l'écran */
+    margin: 0 auto;
+  }
+
+  .titre {
+    font-size: 2rem; /* Réduit la taille du titre */
+    margin-bottom: 1rem;
+  }
+
+  .paragraphe {
+    font-size: 1rem; /* Réduit la taille du texte */
+    margin-bottom: 1.5rem;
+  }
+
+  .btn-discover {
+    padding: 0.5rem 1.5rem; /* Réduit la taille du bouton */
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    width: 100px; /* Réduit la taille du logo */
+    margin-bottom: 2rem;
+  }
+}

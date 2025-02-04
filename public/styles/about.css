@@ -1,0 +1,148 @@
+@import "./variables.css";
+/* About Section Styles */
+.about-section {
+  width: 75%;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mission Section */
+.mission-content {
+  margin-bottom: 2rem;
+}
+
+.mission-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-top: 2.5rem;
+}
+
+.mission-text {
+  color: var(--color-gray-dark);
+  line-height: 2rem;
+  margin-top: 1rem;
+}
+
+/* Values Section */
+.values-section {
+  padding: 3rem 0;
+}
+
+.values-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.value-icon {
+  color: var(--color-green-primary);
+  font-size: 1.8rem;
+}
+
+.value-content h4 {
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+.value-content p {
+  color: var(--color-gray-dark);
+}
+
+/* Impact Section */
+.impact-section {
+  padding: 3rem 0;
+}
+
+.impact-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+.impact-card {
+  background-color: var(--color-gray-light);
+  padding: 1.5rem;
+  border: solid 1px var(--color-green-primary);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.impact-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.impact-icon {
+  color: var(--color-green-primary);
+  font-size: 3rem;
+}
+
+.impact-number {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-green-secondary);
+  margin-top: 1rem;
+}
+
+.impact-label {
+  color: var(--color-gray-dark);
+}
+
+/* Engagement Section */
+.engagement-section {
+  padding: 3rem 0;
+  background-color: var(--color-gray-light);
+  border-radius: 0.5rem;
+}
+
+.engagement-content {
+  padding: 2rem;
+}
+
+.engagement-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.engagement-text {
+  color: var(--color-gray-dark);
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
